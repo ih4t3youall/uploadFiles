@@ -38,8 +38,8 @@ echo '<br/>';
 echo '<label>Obras</label>';
 echo '<br/>';
 $data = array(
-        'name'          => 'obras',
-        'id'            => 'obras',
+        'name'          => 'obra',
+        'id'            => 'obra',
         'value'         => '',
         'maxlength'     => '100',
         'size'          => '50',
@@ -100,11 +100,13 @@ $data = array(
         'size'          => '50',
         'style'         => 'width:50%'
 );
+
 echo form_input($data);
 echo '<br/>';
 
 echo '<label>Descripcion Tareas Realizadas</label>';
 echo '<br/>';
+
 $data = array(
         'name'          => 'desc_tar_realiz',
         'id'            => 'desc_tar_realiz',
@@ -113,6 +115,7 @@ $data = array(
         'size'          => '50',
         'style'         => 'width:50%'
 );
+
 echo form_input($data);
 echo '<br/>';
 echo '<br/>';
