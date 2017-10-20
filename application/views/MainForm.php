@@ -5,11 +5,13 @@
 
 <?php
 
+ echo validation_errors(); 
+
 $attributes = array('class' => 'email', 'id' => 'myform');
-echo form_open('email/send', $attributes);
+echo form_open('main/submitForm', $attributes);
 echo '<p>Antecedentes</p>';
 $data = array(
-        'name'          => 'Antecedentes',
+        'name'          => 'antecedentes',
         'id'            => 'antecedentes',
         'value'         => '',
         'maxlength'     => '100',
@@ -22,8 +24,8 @@ echo '<br/>';
 echo '<label>Texto</label>';
 echo '<br/>';
 $data = array(
-        'name'          => 'Texto',
-        'id'            => 'Texto',
+        'name'          => 'texto',
+        'id'            => 'texto',
         'value'         => '',
         'maxlength'     => '100',
         'size'          => '50',
@@ -36,8 +38,8 @@ echo '<br/>';
 echo '<label>Obras</label>';
 echo '<br/>';
 $data = array(
-        'name'          => 'Obras',
-        'id'            => 'Obras',
+        'name'          => 'obras',
+        'id'            => 'obras',
         'value'         => '',
         'maxlength'     => '100',
         'size'          => '50',
@@ -50,8 +52,8 @@ echo '<br/>';
 echo '<label>Lugar</label>';
 echo '<br/>';
 $data = array(
-        'name'          => 'Lugar',
-        'id'            => 'Lugar',
+        'name'          => 'lugar',
+        'id'            => 'lugar',
         'value'         => '',
         'maxlength'     => '100',
         'size'          => '50',
@@ -64,8 +66,8 @@ echo '<br/>';
 echo '<label>Planta</label>';
 echo '<br/>';
 $data = array(
-        'name'          => 'Planta',
-        'id'            => 'Planta',
+        'name'          => 'planta',
+        'id'            => 'planta',
         'value'         => '',
         'maxlength'     => '100',
         'size'          => '50',
@@ -77,8 +79,8 @@ echo '<br/>';
 echo '<label>Cliente</label>';
 echo '<br/>';
 $data = array(
-        'name'          => 'Cliente',
-        'id'            => 'Cliente',
+        'name'          => 'cliente',
+        'id'            => 'cliente',
         'value'         => '',
         'maxlength'     => '100',
         'size'          => '50',
@@ -104,8 +106,8 @@ echo '<br/>';
 echo '<label>Descripcion Tareas Realizadas</label>';
 echo '<br/>';
 $data = array(
-        'name'          => 'Desc_tar_realiz',
-        'id'            => 'Desc_tar_realiz',
+        'name'          => 'desc_tar_realiz',
+        'id'            => 'desc_tar_realiz',
         'value'         => '',
         'maxlength'     => '100',
         'size'          => '50',
