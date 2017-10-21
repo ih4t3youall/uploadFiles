@@ -60,8 +60,8 @@ class Upload extends CI_Controller {
 						'texto' => $this->input->post('texto'),
 						'id_obra' =>$id_obra 
 										);
-					$this->load->model('form_model');	
-					$this->form_model->save_photo($data);
+					$this->load->model('obras_model');	
+					$this->obras_model->save_photo($data);
 
 
 

@@ -1,3 +1,4 @@
+use uploadFiles;
 CREATE TABLE obra (
 	id_obra MEDIUMINT NOT NULL AUTO_INCREMENT,
 	antecedentes varchar(5000),
