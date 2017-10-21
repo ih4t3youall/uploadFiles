@@ -22,8 +22,7 @@ $data = array(
 );
 echo form_input($data);
 echo '<br/>';
-echo form_hidden('id_obra',$id_obra );
-echo $id_obra;
+echo form_hidden('id_obra',$id_obra);
 ?>
 
 <input type="file" name="userfile" size="20" />

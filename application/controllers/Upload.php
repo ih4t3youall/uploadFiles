@@ -32,13 +32,13 @@ class Upload extends CI_Controller {
 								else
 								{
 												//todo salvar en database
-												$this->save_photo();
+												$id_obra =	$this->input->post('id_obra');	
+												$this->save_photo($id_obra);
 
 												echo $this->input->post('texto');
 												echo '<br/>';
 												echo $this->upload->data('full_path');
 												echo '<br/>';
-												$id_obra =	$this->input->post('id_obra');	
 												echo $id_obra;
 												echo '<br/>';
 												echo	$this->input->post('texto');	
@@ -52,13 +52,13 @@ class Upload extends CI_Controller {
 												$this->load->view('addPhoto', $dataObra);
 								}
 				}
-				public function save_photo(){
+				public function save_photo($id_obra){
 
 						$data = array(
 
 						'url' =>$this->upload->data('full_path'), 
 						'texto' => $this->input->post('texto'),
-						'id_obra' => $this->input->post('id_obra')
+						'id_obra' =>$id_obra 
 										);
 					$this->load->model('form_model');	
 					$this->form_model->save_photo($data);
