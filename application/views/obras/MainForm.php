@@ -8,7 +8,7 @@
  echo validation_errors(); 
 
 $attributes = array('class' => 'email', 'id' => 'myform');
-echo form_open('main/submitForm', $attributes);
+echo form_open('obras/submitForm', $attributes);
 echo '<p>Antecedentes</p>';
 $data = array(
         'name'          => 'antecedentes',

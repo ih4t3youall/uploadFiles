@@ -1,13 +1,13 @@
 <?php
-class Form_model extends CI_Model {
+class Obras_model extends CI_Model {
 
         public $title;
         public $content;
         public $date;
 
-        public function get_last_ten_entries()
+        public function load_obras()
         {
-                $query = $this->db->get('entries', 10);
+                $query = $this->db->get('obra');
                 return $query->result();
         }
 

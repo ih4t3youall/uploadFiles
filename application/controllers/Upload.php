@@ -10,7 +10,7 @@ class Upload extends CI_Controller {
 
 				public function index()
 				{
-								$this->load->view('addPhoto', array('error' => ' ' ));
+								$this->load->view('obras/addPhoto', array('error' => ' ' ));
 				}
 
 				public function do_upload()
@@ -27,7 +27,7 @@ class Upload extends CI_Controller {
 								{
 												$error = array('error' => $this->upload->display_errors());
 
-												$this->load->view('addPhoto', $error);
+												$this->load->view('obras/addPhoto', $error);
 								}
 								else
 								{
@@ -49,7 +49,7 @@ class Upload extends CI_Controller {
 																				'id_obra' => $id_obra,
 																				'error'=>''
 																				);
-												$this->load->view('addPhoto', $dataObra);
+												$this->load->view('obras/addPhoto', $dataObra);
 								}
 				}
 				public function save_photo($id_obra){
