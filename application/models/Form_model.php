@@ -14,16 +14,15 @@ class Form_model extends CI_Model {
         public function insert_entry($data)
         {
 
-						$this->db->insert('obra', $data);
+						$data  = $this->db->insert('obra', $data);
+						return $this->db->insert_id();	
         }
 
-        public function update_entry()
+        public function save_photo($data)
         {
-                $this->title    = $_POST['title'];
-                $this->content  = $_POST['content'];
-                $this->date     = time();
+					
+						$data  = $this->db->insert('images', $data);
 
-                $this->db->update('entries', $this, array('id' => $_POST['id']));
         }
 
 }

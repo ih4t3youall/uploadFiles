@@ -40,25 +40,37 @@ class Main extends CI_Controller {
 								}
 								else
 								{
-										$data= array(
-												'antecedentes' =>	$this->input->post('antecedentes'),
-												'texto' => $this->input->post('texto'),	
-												'obra'=> $this->input->post('obra'),		
-												'lugar'=> $this->input->post('lugar'),	
-												'planta' => $this->input->post('planta'),	
-												'cliente' =>$this->input->post('cliente'),	
-												'anio' => $this->input->post('anio'),	
-												'desc_tar_realiz' =>$this->input->post('desc_tar_realiz')
-												);
+												$data= array(
+																				'antecedentes' =>	$this->input->post('antecedentes'),
+																				'texto' => $this->input->post('texto'),	
+																				'obra'=> $this->input->post('obra'),		
+																				'lugar'=> $this->input->post('lugar'),	
+																				'planta' => $this->input->post('planta'),	
+																				'cliente' =>$this->input->post('cliente'),	
+																				'anio' => $this->input->post('anio'),	
+																				'desc_tar_realiz' =>$this->input->post('desc_tar_realiz')
+																		);
 												$this->load->model('form_model');
-												$this->form_model->insert_entry($data);
-										
+												$id_obra = 	$this->form_model->insert_entry($data);
+												$dataObra = array(
+																				'id_obra' => $id_obra,
+																				'error'=>''
+																		 );
+
+												$this->load->view('addPhoto',$dataObra);
 
 								}
 
 
 
 				}
+ 			public function addAnother(){
+
+
+
+
+
+}
 
 
 }
