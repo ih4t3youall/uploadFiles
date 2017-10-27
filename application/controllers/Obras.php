@@ -2,21 +2,16 @@
 
 
 class Obras extends CI_Controller {
-				public function __construct(){
 
+				public function __construct(){
 
 								parent::__construct();
 
 				}
 
-
 				public function mainForm(){
 
-
 								$this->load->view('obras/MainForm');	
-
-
-
 
 				}
 
@@ -67,19 +62,36 @@ class Obras extends CI_Controller {
 				}
 				public function viewObras(){
 
-							
-							$this->load->model('obras_model');
-							$dataArray['result']=	$this->obras_model->load_obras();
+								$this->load->model('obras_model');
+								$dataArray['result']=	$this->obras_model->load_obras();
 
-							$this->load->view('obras/verObras',$dataArray);	
-
+								$this->load->view('obras/verObras',$dataArray);	
 
 				}
 
 
+				public function get_obra_images(){
+
+								$this->load->model('obras_model');
+								$result =	$this->obras_model->load_images_by_obra_id('16');
+								$dataArray = Array();
+								$cont = 0;
+
+								foreach ($result as $key){
+												$arrayImages=Array();
+												foreach($key as $k => $v){
+																$arrayImages[$k]=$v;
+												}
+												$dataArray[$cont]=$arrayImages;
+												$cont++;
+								}
+							foreach($dataArray as $image){
+										foreach ($image as $k => $v){
+											echo $k.' - '.$v;
+											echo '<br/>';
+										}
+								}	
+
 }
-
-
-
-
+}
 ?>

@@ -2,8 +2,8 @@
 <head>
 </head>
 <body>
-<?php 
-		
+<?php
+/*
 foreach ($result as $key){
 
 echo '<div class="obra">';
@@ -17,8 +17,8 @@ echo '</div>';
 
 echo '<br/>';
 }
-
-
+*/
 ?>
+</body>
 </body>
 </html>

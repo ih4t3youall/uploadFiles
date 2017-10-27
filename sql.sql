@@ -18,4 +18,4 @@ CREATE TABLE images(
 	id_obra MEDIUMINT not null,
 	PRIMARY KEY (id_images),
 	FOREIGN KEY (id_obra) REFERENCES obra(id_obra)
-)
+);
