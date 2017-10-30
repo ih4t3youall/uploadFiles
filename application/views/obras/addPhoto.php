@@ -13,11 +13,9 @@
 <?php
 echo '<p>Texto Imagen (opcional)</p>';
 $data = array(
-        'name'          => 'texto',
-        'id'            => 'texto',
+        'name'          => 'textoimagen',
+        'id'            => 'textoimagen',
         'value'         => '',
-        'maxlength'     => '100',
-        'size'          => '50',
         'style'         => 'width:50%'
 );
 echo form_input($data);

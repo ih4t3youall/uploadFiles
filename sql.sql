@@ -20,3 +20,7 @@ CREATE TABLE images(
 	PRIMARY KEY (id_images),
 	FOREIGN KEY (id_obra) REFERENCES obra(id_obra)
 );
+
+
+ALTER TABLE `images` CHANGE `texto` `textoImagen` varchar(5000);
+

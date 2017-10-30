@@ -63,35 +63,49 @@ class Obras extends CI_Controller {
 				public function viewObras(){
 
 								$this->load->model('obras_model');
-								$dataArray['result']=	$this->obras_model->load_obras();
+								$result =	$this->obras_model->load_obras();
+								$data=$this->convert_to_simple_array($result);
+								$int = sizeof($data);
+								for ($i = 0; $i < $int; $i++) {
+												$dat = $data[$i];		
+												$id_obra = $dat['id_obra'];
+												$imagen_obra= $this->get_obra_images($id_obra);
+												foreach($imagen_obra as $images){
+																foreach($images as $key => $value){
+																				$data[$i][$key]=$value;
+																}
 
+												}
+								}
+
+								$dataArray['result']=$data;
 								$this->load->view('obras/verObras',$dataArray);	
 
 				}
 
 
-				public function get_obra_images(){
+				public function get_obra_images($id_obra){
 
 								$this->load->model('obras_model');
-								$result =	$this->obras_model->load_images_by_obra_id('16');
+								$result =	$this->obras_model->load_images_by_obra_id($id_obra);
+								return $this->convert_to_simple_array($result);
+
+				}
+				public function convert_to_simple_array($result){
+
 								$dataArray = Array();
 								$cont = 0;
-
 								foreach ($result as $key){
-												$arrayImages=Array();
+												$arrayAux=Array();
 												foreach($key as $k => $v){
-																$arrayImages[$k]=$v;
+																$arrayAux[$k]=$v;
 												}
-												$dataArray[$cont]=$arrayImages;
+												$dataArray[$cont]=$arrayAux;
 												$cont++;
 								}
-							foreach($dataArray as $image){
-										foreach ($image as $k => $v){
-											echo $k.' - '.$v;
-											echo '<br/>';
-										}
-								}	
+								return $dataArray;
 
-}
+
+				}
 }
 ?>

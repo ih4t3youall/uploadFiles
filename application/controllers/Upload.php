@@ -17,16 +17,17 @@ class Upload extends CI_Controller {
 				{
 								$config['upload_path']          = './uploads/';
 								$config['allowed_types']        = 'gif|jpg|png|jpeg';
-								$config['max_size']             = 2000;
-								$config['max_width']            = 1024;
-								$config['max_height']           = 768;
+//								$config['max_size']             = 2000;
+//								$config['max_width']            = 1024;
+//								$config['max_height']           = 768;
 
 								$this->load->library('upload', $config);
 
 								if ( ! $this->upload->do_upload('userfile'))
 								{
 												$error = array('error' => $this->upload->display_errors());
-
+												$id_obra =	$this->input->post('id_obra');	
+												$error['id_obra']=$id_obra;
 												$this->load->view('obras/addPhoto', $error);
 								}
 								else
@@ -35,13 +36,11 @@ class Upload extends CI_Controller {
 												$id_obra =	$this->input->post('id_obra');	
 												$this->save_photo($id_obra);
 
-												echo $this->input->post('texto');
+												echo $this->input->post('textoimagen');
 												echo '<br/>';
 												echo $this->upload->data('full_path');
 												echo '<br/>';
 												echo $id_obra;
-												echo '<br/>';
-												echo	$this->input->post('texto');	
 												echo '<br/>';
 												echo 'finish';
 
@@ -57,7 +56,7 @@ class Upload extends CI_Controller {
 						$data = array(
 
 						'url' =>$this->upload->data('full_path'), 
-						'texto' => $this->input->post('texto'),
+						'textoimagen' => $this->input->post('textoimagen'),
 						'id_obra' =>$id_obra 
 										);
 					$this->load->model('obras_model');	
