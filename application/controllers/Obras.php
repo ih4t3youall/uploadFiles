@@ -60,6 +60,54 @@ class Obras extends CI_Controller {
 
 
 				}
+				public function edit_photo(){
+
+
+								$this->load->library('form_validation');
+								$this->form_validation->set_rules('antecedentes', 'Antecedentes', 'required');
+								$this->form_validation->set_rules('texto', 'Texto', 'required');
+								$this->form_validation->set_rules('obra', 'Obras', 'required');
+								$this->form_validation->set_rules('lugar', 'Lugar', 'required');
+								$this->form_validation->set_rules('planta', 'Planta', 'required');
+								$this->form_validation->set_rules('cliente', 'Cliente', 'required');
+								$this->form_validation->set_rules('anio', 'Anio', 'required');
+								$this->form_validation->set_rules('desc_tar_realiz', 'desc_tar_realiz', 'required');
+
+
+								if ($this->form_validation->run() == FALSE)
+								{
+												$this->load->view('obras/MainForm');
+								}
+								else
+								{
+
+												$dataObra= array(
+																				'antecedentes' =>	$this->input->post('antecedentes'),
+																				'texto' => $this->input->post('texto'),	
+																				'obra'=> $this->input->post('obra'),		
+																				'lugar'=> $this->input->post('lugar'),	
+																				'planta' => $this->input->post('planta'),	
+																				'cliente' =>$this->input->post('cliente'),	
+																				'anio' => $this->input->post('anio'),	
+																				'desc_tar_realiz' =>$this->input->post('desc_tar_realiz')
+																		);
+												$dataImage=array(
+																				'url' => $this->input->post('url'),	
+																				'textoImagen'=> $this->input->post('textoImagen'),		
+																				);
+												$id_image = $this->input->post('id_images');
+
+												$this->load->model('obras_model');
+												$id_obra = $this->input->post('id_obra');
+												$this->obras_model->update_obra($dataObra,$id_obra);
+												$this->obras_model->update_image($dataImage,$id_image);
+
+								}
+
+
+
+
+				}
 				public function viewObras(){
 
 								$this->load->model('obras_model');
