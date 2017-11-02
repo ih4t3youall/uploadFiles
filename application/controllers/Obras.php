@@ -118,14 +118,16 @@ class Obras extends CI_Controller {
 												$dat = $data[$i];		
 												$id_obra = $dat['id_obra'];
 												$imagen_obra= $this->get_obra_images($id_obra);
+												$data[$i]['imagenes']=$imagen_obra;
+/*												$contador =0;
 												foreach($imagen_obra as $images){
 																foreach($images as $key => $value){
-																				$data[$i][$key]=$value;
+																				$data[$i][$contador]=$value;
+																				$contador++;
 																}
 
-												}
+												}*/
 								}
-
 								$dataArray['result']=$data;
 								$this->load->view('obras/verObras',$dataArray);	
 
@@ -135,8 +137,8 @@ class Obras extends CI_Controller {
 				public function get_obra_images($id_obra){
 
 								$this->load->model('obras_model');
-								$result =	$this->obras_model->load_images_by_obra_id($id_obra);
-								return $this->convert_to_simple_array($result);
+								return $this->obras_model->load_images_by_obra_id($id_obra);
+								
 
 				}
 				public function convert_to_simple_array($result){
