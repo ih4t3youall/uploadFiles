@@ -137,7 +137,7 @@ class Obras extends CI_Controller {
 				public function get_obra_images($id_obra){
 
 								$this->load->model('obras_model');
-								return $this->obras_model->load_images_by_obra_id($id_obra);
+						return		$this->convert_to_simple_array($this->obras_model->load_images_by_obra_id($id_obra));
 								
 
 				}
