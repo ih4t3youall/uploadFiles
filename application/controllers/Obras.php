@@ -4,15 +4,17 @@
 class Obras extends CI_Controller {
 
 				public function __construct(){
-
 								parent::__construct();
-
 				}
 
 				public function mainForm(){
-
 								$this->load->view('obras/MainForm');	
+				}
 
+				public function deleteImage(){
+								$id_image =	$this->input->post('id_image');
+								$this->load->model('obras_model');	
+								$this->obras_model->delete_image($id_image);
 				}
 
 				public function submitForm(){
@@ -90,7 +92,7 @@ class Obras extends CI_Controller {
 																				'cliente' =>$this->input->post('cliente'),	
 																				'anio' => $this->input->post('anio'),	
 																				'desc_tar_realiz' =>$this->input->post('desc_tar_realiz')
-																		);
+																				);
 												$dataImage=array(
 																				'url' => $this->input->post('url'),	
 																				'textoImagen'=> $this->input->post('textoImagen'),		
@@ -119,14 +121,14 @@ class Obras extends CI_Controller {
 												$id_obra = $dat['id_obra'];
 												$imagen_obra= $this->get_obra_images($id_obra);
 												$data[$i]['imagenes']=$imagen_obra;
-/*												$contador =0;
-												foreach($imagen_obra as $images){
-																foreach($images as $key => $value){
-																				$data[$i][$contador]=$value;
-																				$contador++;
-																}
+												/*												$contador =0;
+																									foreach($imagen_obra as $images){
+																									foreach($images as $key => $value){
+																									$data[$i][$contador]=$value;
+																									$contador++;
+																									}
 
-												}*/
+																									}*/
 								}
 								$dataArray['result']=$data;
 								$this->load->view('obras/verObras',$dataArray);	
@@ -137,8 +139,8 @@ class Obras extends CI_Controller {
 				public function get_obra_images($id_obra){
 
 								$this->load->model('obras_model');
-						return		$this->convert_to_simple_array($this->obras_model->load_images_by_obra_id($id_obra));
-								
+								return		$this->convert_to_simple_array($this->obras_model->load_images_by_obra_id($id_obra));
+
 
 				}
 				public function convert_to_simple_array($result){

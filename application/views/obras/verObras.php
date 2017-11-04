@@ -1,5 +1,17 @@
 <html>
 <head>
+<link href="<?php echo base_url();?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="<?php echo base_url();?>js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+function deleteImage(id_image){
+
+				$.post( "deleteImage", { 'id_image': id_image })
+								.done(function( data ) {
+																alert( "se elimino la imagen: " + data );
+																$("#"+id_image).hide();
+																});
+}
+</script>
 </head>
 <body>
 <?php 
@@ -89,8 +101,8 @@ foreach ($result as $key){
 				$images= $key['imagenes'];
 				echo '<br/>';
 				echo '<br/>';
+				echo '<div class="row">';
 				foreach ($images as $key ){
-								echo '<div id="'.$key['id_images'].'">';
 
 								$id_imagen = array(
 																'type'				  => 'hidden',	
@@ -101,17 +113,28 @@ foreach ($result as $key){
 																'size'          => '50',
 																'style'         => 'width:50%'
 																);
+								$textoImagen = array(
+																'name'          => $key['textoImagen'],
+																'id'            => $key['textoImagen'],
+																'value'         => $key['textoImagen'],
+																'maxlength'     => '100',
+																'size'          => '50',
+																'style'         => 'width:50%'
+																);
+
+								echo '<div class="col-6" id="'.$key['id_images'].'">';      
 								echo form_input($id_imagen);
-
+								echo form_input($textoImagen);
 								echo '<img src="'.base_url().'uploads/'.$key['url'].'" height="500px" width="500px"/>';	
+								echo '<input type="button" value="eliminar" onclick="deleteImage('.$key['id_images'].')"/>';
+								echo '</div />';  
 
-
-								echo '<div/>'; 
 				}
+				echo '</div >';
+
 				echo '<br/>';
 				echo form_submit('Enviar', 'Enviar');
 				echo form_close();
-				echo '</div>';
 
 				echo '<br/>';
 }
