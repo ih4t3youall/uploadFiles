@@ -33,6 +33,8 @@ class Obras_model extends CI_Model {
 				}
 
 				public function update_obra($obra,$id_obra){
+								var_dump($id_obra);
+								var_dump($obra);
 								$this->db->where('id_obra', $id_obra);
 								$this->db->update('obra', $obra);
 				}

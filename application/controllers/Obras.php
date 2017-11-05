@@ -103,12 +103,23 @@ class Obras extends CI_Controller {
 												$id_obra = $this->input->post('id_obra');
 												$this->obras_model->update_obra($dataObra,$id_obra);
 												$this->obras_model->update_image($dataImage,$id_image);
-
+												$this->viewObras();
 								}
 
 
 
 
+				}
+				public function update_image(){
+
+								$id_image=	$this->input->post('id_image');
+								$texto_image = $this->input->post('texto');
+								$this->load->model('obras_model');
+								$data = array(
+																'textoImagen' =>$texto_image 
+
+														 );
+								$this->obras_model->update_image($data,$id_image);
 				}
 				public function viewObras(){
 
