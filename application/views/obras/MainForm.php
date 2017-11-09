@@ -14,7 +14,7 @@ $data = array(
         'name'          => 'antecedentes',
         'id'            => 'antecedentes',
         'value'         => '',
-        'maxlength'     => '100',
+        'maxlength'     => '5000',
         'size'          => '50',
         'style'         => 'width:50%'
 );
@@ -27,7 +27,7 @@ $data = array(
         'name'          => 'texto',
         'id'            => 'texto',
         'value'         => '',
-        'maxlength'     => '100',
+        'maxlength'     => '5000',
         'size'          => '50',
         'style'         => 'width:50%'
 );
@@ -41,7 +41,7 @@ $data = array(
         'name'          => 'obra',
         'id'            => 'obra',
         'value'         => '',
-        'maxlength'     => '100',
+        'maxlength'     => '5000',
         'size'          => '50',
         'style'         => 'width:50%'
 );
@@ -55,7 +55,7 @@ $data = array(
         'name'          => 'lugar',
         'id'            => 'lugar',
         'value'         => '',
-        'maxlength'     => '100',
+        'maxlength'     => '5000',
         'size'          => '50',
         'style'         => 'width:50%'
 );
@@ -69,7 +69,7 @@ $data = array(
         'name'          => 'planta',
         'id'            => 'planta',
         'value'         => '',
-        'maxlength'     => '100',
+        'maxlength'     => '5000',
         'size'          => '50',
         'style'         => 'width:50%'
 );
@@ -82,7 +82,7 @@ $data = array(
         'name'          => 'cliente',
         'id'            => 'cliente',
         'value'         => '',
-        'maxlength'     => '100',
+        'maxlength'     => '5000',
         'size'          => '50',
         'style'         => 'width:50%'
 );
@@ -96,7 +96,7 @@ $data = array(
         'name'          => 'anio',
         'id'            => 'anio',
         'value'         => '',
-        'maxlength'     => '100',
+        'maxlength'     => '5000',
         'size'          => '50',
         'style'         => 'width:50%'
 );
@@ -111,7 +111,7 @@ $data = array(
         'name'          => 'desc_tar_realiz',
         'id'            => 'desc_tar_realiz',
         'value'         => '',
-        'maxlength'     => '100',
+        'maxlength'     => '5000',
         'size'          => '50',
         'style'         => 'width:50%'
 );
