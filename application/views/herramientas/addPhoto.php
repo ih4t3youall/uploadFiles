@@ -6,7 +6,7 @@
 
 <?php echo $error;?>
 
-<?php echo form_open_multipart('upload/do_upload');?>
+<?php echo form_open_multipart('herramientas/do_upload');?>
 
 
 
@@ -20,18 +20,15 @@ $data = array(
 );
 echo form_input($data);
 echo '<br/>';
-echo form_hidden('id_obra',$id_obra);
+echo form_hidden('id_herramienta',$inserted_id);
 ?>
 
-<input type="file" name="userfile2" size="20" />
+<input type="file" name="userfile" size="20" />
 
 <br /><br />
 
 <input type="submit" value="upload" />
 
-</form>
-<form action="<?php echo base_url();?>/index.php/main/">
-    <input type="submit" value="Finalizar Carga" />
 </form>
 
 </body>

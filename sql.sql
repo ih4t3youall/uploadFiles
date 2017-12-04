@@ -24,3 +24,24 @@ CREATE TABLE images(
 
 ALTER TABLE `images` CHANGE `texto` `textoImagen` varchar(5000);
 
+CREATE TABLE herramientas(
+
+	id_herramienta MEDIUMINT NOT NULL AUTO_INCREMENT,
+	nombre varchar(5000),
+	textoHerramienta varchar(5000),
+	segundoTexto varchar(5000),
+	url varchar(5000),
+    vehiculo varchar(10),
+PRIMARY KEY (id_herramienta)
+);
+
+CREATE TABLE images_herramientas(
+	id_images_herramientas MEDIUMINT NOT NULL AUTO_INCREMENT,
+	url varchar(5000),
+	texto varchar(1500),
+	id_obra MEDIUMINT not null,
+	PRIMARY KEY (id_images_herramientas),
+	FOREIGN KEY (id_images_herramientas) REFERENCES herramientas(id_herramienta)
+);
+
+
