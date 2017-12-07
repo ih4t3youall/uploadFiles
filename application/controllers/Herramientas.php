@@ -1,4 +1,3 @@
-
 <?php 
 
 
@@ -44,6 +43,7 @@ class Herramientas extends CI_Controller {
 
 												}
 												$segundoTexto =	$this->input->post('segundoTexto');	
+												$fileName=$this->upload->data('raw_name').$this->upload->data('file_ext');
 												$data= array(
 																				'nombre' =>	$this->input->post('nombre'),
 																				'segundoTexto' => $this->input->post('segundoTexto'),	
@@ -52,10 +52,10 @@ class Herramientas extends CI_Controller {
 																				'vehiculo' =>$vehiculo
 																		);
 												$this->load->model('herramientas_model');
-																								$inserted_id =			$this->herramientas_model->save_herramienta($data);	
-																								$data['inserted_id'] =$inserted_id;
-																								$data['error']='';
-																								$this->load->view('herramientas/addPhoto',$data);
+												$inserted_id =			$this->herramientas_model->save_herramienta($data);	
+												$data['inserted_id'] =$inserted_id;
+												$data['error']='';
+												$this->load->view('herramientas/addPhoto',$data);
 								}
 
 
@@ -80,20 +80,57 @@ class Herramientas extends CI_Controller {
 								{
 												$id_images_herramientas =	$this->input->post('id_images_herramientas');	
 												$fileName=$this->upload->data('raw_name').$this->upload->data('file_ext');
-												$dataObra = array(
-																				'texto'	=> 	$this->input->post('textoimagen'),	
-																				'url'=>$fileName,
-																				'id_herramienta' =>$this->input->post('id_herramienta'),	
-																				);
+												$id_herramienta =$this->input->post('id_herramienta');	
+												$url = $fileName;
 
 												//todo salvar en database
 												$this->load->model('herramientas_model');
-												$this->herramientas_model->save_img_herramienta($dataObra);
+												$this->herramientas_model->update_herramienta_img($id_herramienta,$url);
 												$this->load->view('landing');
 								}
 
 
 
+				}
+				public function verHerramientas(){
+
+								$this->load->model('Herramientas_model');
+								$query_result =$this->Herramientas_model->get_herramientas(); 
+
+								$result['herramientas']= $this->convert_to_simple_array($query_result); 
+								$this->load->view('herramientas/verHerramientas',$result);
+
+
+				}
+
+				public function modificarHerramienta(){
+
+								$data = array(
+																'nombre' => $this->input->post('nombre'),
+																'textoHerramienta' => $this->input->post('textoHerramienta'),
+																'segundoTexto' => $this->input->post('segundoTexto'),
+																'url' => $this->input->post('url')
+														 );
+
+								$this->load->model('herramientas_model');
+								$this->herramientas_model->update_herramienta($this->input->post('id_herramienta'),$data);
+
+								$this->load->view('landing');
+
+				}
+				public function convert_to_simple_array($result){
+
+								$dataArray = Array();
+								$cont = 0;
+								foreach ($result as $key){
+												$arrayAux=Array();
+												foreach($key as $k => $v){
+																$arrayAux[$k]=$v;
+												}
+												$dataArray[$cont]=$arrayAux;
+												$cont++;
+								}
+								return $dataArray;
 				}
 }
 ?>

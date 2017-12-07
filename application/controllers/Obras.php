@@ -167,8 +167,6 @@ class Obras extends CI_Controller {
 												$cont++;
 								}
 								return $dataArray;
-
-
 				}
 }
 ?>

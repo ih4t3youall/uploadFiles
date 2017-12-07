@@ -35,13 +35,6 @@ CREATE TABLE herramientas(
 PRIMARY KEY (id_herramienta)
 );
 
-CREATE TABLE images_herramientas(
-	id_images_herramientas MEDIUMINT NOT NULL AUTO_INCREMENT,
-	url varchar(5000),
-	texto varchar(1500),
-	id_obra MEDIUMINT not null,
-	PRIMARY KEY (id_images_herramientas),
-	FOREIGN KEY (id_images_herramientas) REFERENCES herramientas(id_herramienta)
-);
+
 
 
