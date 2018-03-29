@@ -31,6 +31,7 @@ class Obras extends CI_Controller {
 								$this->form_validation->set_rules('cliente', 'Cliente', 'required');
 								$this->form_validation->set_rules('anio', 'Anio', 'required');
 								$this->form_validation->set_rules('desc_tar_realiz', 'desc_tar_realiz', 'required');
+								$this->form_validation->set_rules('tipo', 'tipo', 'required');
 
 								if ($this->form_validation->run() == FALSE)
 								{
@@ -46,7 +47,8 @@ class Obras extends CI_Controller {
 																				'planta' => $this->input->post('planta'),	
 																				'cliente' =>$this->input->post('cliente'),	
 																				'anio' => $this->input->post('anio'),	
-																				'desc_tar_realiz' =>$this->input->post('desc_tar_realiz')
+																				'desc_tar_realiz' =>$this->input->post('desc_tar_realiz'),
+																				'tipo' =>$this->input->post('tipo')
 																		);
 												$this->load->model('obras_model');
 												$id_obra = 	$this->obras_model->insert_entry($data);
@@ -74,6 +76,7 @@ class Obras extends CI_Controller {
 								$this->form_validation->set_rules('cliente', 'Cliente', 'required');
 								$this->form_validation->set_rules('anio', 'Anio', 'required');
 								$this->form_validation->set_rules('desc_tar_realiz', 'desc_tar_realiz', 'required');
+								$this->form_validation->set_rules('tipo', 'tipo', 'required');
 
 
 								if ($this->form_validation->run() == FALSE)
@@ -91,7 +94,8 @@ class Obras extends CI_Controller {
 																				'planta' => $this->input->post('planta'),	
 																				'cliente' =>$this->input->post('cliente'),	
 																				'anio' => $this->input->post('anio'),	
-																				'desc_tar_realiz' =>$this->input->post('desc_tar_realiz')
+																				'desc_tar_realiz' =>$this->input->post('desc_tar_realiz'),
+																				'tipo' =>$this->input->post('tipo')
 																				);
 												$dataImage=array(
 																				'url' => $this->input->post('url'),	

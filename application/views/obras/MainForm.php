@@ -118,6 +118,20 @@ $data = array(
 
 echo form_input($data);
 echo '<br/>';
+echo '<label>Tipo</label>';
+echo '<br/>';
+
+$data = array(
+        'name'          => 'tipo',
+        'id'            => 'tipo',
+        'value'         => '',
+        'maxlength'     => '5000',
+        'size'          => '50',
+        'style'         => 'width:50%'
+);
+
+echo form_input($data);
+echo '<br/>';
 echo '<br/>';
 echo '<br/>';
 echo '<br/>';

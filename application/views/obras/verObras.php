@@ -114,6 +114,14 @@ foreach ($result as $key){
 												'size'          => '50',
 												'style'         => 'width:50%'
 												);
+				$tipo = array(
+												'name'          => 'tipo',
+												'id'            => $key['tipo'],
+												'value'         => $key['tipo'],
+												'maxlength'     => '100',
+												'size'          => '50',
+												'style'         => 'width:50%'
+												);
 				$id_obra = array(
 												'type'				  => 'hidden',	
 												'name'          => 'id_obra',
@@ -133,6 +141,7 @@ foreach ($result as $key){
 				echo form_input($cliente);
 				echo form_input($anio);
 				echo form_input($desc_tar_realiz);
+				echo form_input($tipo);
 
 				echo form_submit('Enviar', 'Enviar');
 				echo form_close();

@@ -46,3 +46,4 @@ CREATE TABLE cv (
 	PRIMARY KEY (id)
 );
 
+alter table obra add tipo varchar(250);
