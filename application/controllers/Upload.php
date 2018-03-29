@@ -42,7 +42,7 @@ class Upload extends CI_Controller {
 				}
 				public function save_photo($id_obra){
 
-												$fileName=$this->upload->data('raw_name').$this->upload->data('file_ext');
+								$fileName=$this->upload->data('raw_name').$this->upload->data('file_ext');
 								$data = array(
 
 																'url' =>$fileName,

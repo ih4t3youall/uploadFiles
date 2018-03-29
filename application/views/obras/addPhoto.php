@@ -23,7 +23,7 @@ echo '<br/>';
 echo form_hidden('id_obra',$id_obra);
 ?>
 
-<input type="file" name="userfile2" size="20" />
+<input type="file" name="userfile" size="20" />
 
 <br /><br />
 

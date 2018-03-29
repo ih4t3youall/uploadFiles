@@ -36,5 +36,13 @@ PRIMARY KEY (id_herramienta)
 );
 
 
-
+CREATE TABLE cv (
+  id  MEDIUMINT NOT NULL AUTO_INCREMENT,
+  nombre varchar(255) NOT NULL,
+  apellido varchar(255) NOT NULL,
+  url varchar(500) NOT NULL,
+  telefono int(20) NOT NULL,
+  email varchar(255) NOT NULL,
+	PRIMARY KEY (id)
+);
 
