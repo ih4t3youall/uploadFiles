@@ -37,12 +37,14 @@ class Upload extends CI_Controller {
 																				'id_obra' => $id_obra,
 																				'error'=>''
 																				);
+																	
 												$this->load->view('obras/addPhoto', $dataObra);
 								}
 				}
 				public function save_photo($id_obra){
 
 								$fileName=$this->upload->data('raw_name').$this->upload->data('file_ext');
+								echo 'photo saved';
 								$data = array(
 
 																'url' =>$fileName,

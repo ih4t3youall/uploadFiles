@@ -13,12 +13,12 @@
     <input type="submit" value="ver obras" />
 </form>
 
-<form action="<?php echo base_url();?>/index.php/herramientas">
+<!--<form action="<?php echo base_url();?>/index.php/herramientas">
     <input type="submit" value="herramientas" />
 </form>
 <form action="<?php echo base_url();?>/index.php/herramientas/verHerramientas">
     <input type="submit" value="ver herramientas" />
-</form>
+</form>-->
 
 </body>
 

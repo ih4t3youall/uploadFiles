@@ -121,16 +121,19 @@ echo '<br/>';
 echo '<label>Tipo</label>';
 echo '<br/>';
 
-$data = array(
-        'name'          => 'tipo',
-        'id'            => 'tipo',
-        'value'         => '',
-        'maxlength'     => '5000',
-        'size'          => '50',
-        'style'         => 'width:50%'
+$options = array(
+        'proyecto'         => 'proyecto',
+        'obra'           => 'obra',
+        'equipo'         => 'equipo',
+        'vehiculo'         => 'vehiculo',
+        'herramienta'         => 'herramienta',
+        'instalaciones'        => 'instalaciones',
 );
 
-echo form_input($data);
+
+echo form_dropdown('categoria', $options, 'nose');
+
+
 echo '<br/>';
 echo '<br/>';
 echo '<br/>';
