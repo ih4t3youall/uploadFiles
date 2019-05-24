@@ -30,7 +30,7 @@ echo form_hidden('id_obra',$id_obra);
 <input type="submit" value="upload" />
 
 </form>
-<form action="<?php echo base_url();?>/index.php/main/">
+<form action="<?php echo base_url();?>index.php/main/">
     <input type="submit" value="Finalizar Carga" />
 </form>
 
