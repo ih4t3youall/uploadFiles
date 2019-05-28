@@ -57,6 +57,7 @@ class Obras extends CI_Controller {
 				'desc_tar_realiz' =>$this->input->post('desc_tar_realiz'),
 				'tipo' =>$this->input->post('categoria')
 			);
+
 			$this->load->model('obras_model');
 			$id_obra = 	$this->obras_model->insert_entry($data);
 			$dataObra = array(
@@ -83,7 +84,7 @@ class Obras extends CI_Controller {
 		$this->form_validation->set_rules('cliente', 'Cliente', 'required');
 		$this->form_validation->set_rules('anio', 'Anio', 'required');
 		$this->form_validation->set_rules('desc_tar_realiz', 'desc_tar_realiz', 'required');
-		$this->form_validation->set_rules('tipo', 'tipo', 'required');
+		$this->form_validation->set_rules('categoria', 'categoria', 'required');
 
 
 		if ($this->form_validation->run() == FALSE)
@@ -102,7 +103,7 @@ class Obras extends CI_Controller {
 				'cliente' =>$this->input->post('cliente'),	
 				'anio' => $this->input->post('anio'),	
 				'desc_tar_realiz' =>$this->input->post('desc_tar_realiz'),
-				'tipo' =>$this->input->post('tipo')
+				'tipo' =>$this->input->post('categoria')
 			);
 			$dataImage=array(
 				'url' => $this->input->post('url'),	
@@ -116,21 +117,18 @@ class Obras extends CI_Controller {
 			$this->obras_model->update_image($dataImage,$id_image);
 			$this->viewObras();
 		}
-
-
-
-
 	}
-	public function update_image(){
 
+	public function update_image(){
+		
 		$id_image=	$this->input->post('id_image');
 		$texto_image = $this->input->post('texto');
 		$this->load->model('obras_model');
 		$data = array(
 			'textoImagen' =>$texto_image 
-
 		);
 		$this->obras_model->update_image($data,$id_image);
+
 	}
 	public function viewObras(){
 
