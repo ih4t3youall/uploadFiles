@@ -11,6 +11,20 @@ function deleteImage(id_image){
 			$("#"+id_image).hide();
 		});
 }
+
+function deleteObra(id_obra){
+
+	alert('hello: '+id_obra);
+	$.post("deleteObra", {'id_obra':id_obra}).done(function(data){
+		alert("aca borro el id "+id_obra);
+	}).fail(function(data){
+	
+		alert(data);
+		console.log(data);
+	
+	});
+}
+
 function cambiarNombreImagen(id_image){
 
 
@@ -123,7 +137,7 @@ foreach ($result as $key){
 		'style'         => 'width:50%'
 	);
 	$id_obra = array(
-		'type'				  => 'hidden',	
+		'type'		=> 'hidden',	
 		'name'          => 'id_obra',
 		'id'            => $key['id_obra'],
 		'value'         => $key['id_obra'],
@@ -152,30 +166,30 @@ foreach ($result as $key){
 	foreach ($images as $key ){
 
 		$id_imagen = array(
-			'type'				  => 'hidden',	
-			'name'          => 'id_images',
-			'id'            => $key['id_images'],
-			'value'         => $key['id_images'],
-			'maxlength'     => '100',
-			'size'          => '50',
-			'style'         => 'width:50%'
+			'type'	      => 'hidden',	
+			'name'        => 'id_images',
+			'id'          => $key['id_images'],
+			'value'       => $key['id_images'],
+			'maxlength'   => '100',
+			'size'        => '50',
+			'style'       => 'width:50%'
 		);
 		$textoImagen = array(
-			'name'          => 'textoImagen',
-			'id'            => 'imageText'.$key['id_images'],
-			'value'         => $key['textoImagen'],
-			'maxlength'     => '100',
-			'size'          => '50',
-			'style'         => 'width:50%'
+			'name'        => 'textoImagen',
+			'id'          => 'imageText'.$key['id_images'],
+			'value'       => $key['textoImagen'],
+			'maxlength'   => '100',
+			'size'        => '50',
+			'style'       => 'width:50%'
 		);
 		$url = array(
-			'type'				  => 'hidden',	
-			'name'          => 'url',
-			'id'            => $key['url'],
-			'value'         => $key['url'],
-			'maxlength'     => '100',
-			'size'          => '50',
-			'style'         => 'width:50%'
+			'type'	      		  => 'hidden',	
+			'name'        => 'url',
+			'id'          => $key['url'],
+			'value'       => $key['url'],
+			'maxlength'   => '100',
+			'size'        => '50',
+			'style'       => 'width:50%'
 		);
 
 		echo '<div class="col-6" id="'.$key['id_images'].'">';      
@@ -188,16 +202,23 @@ foreach ($result as $key){
 		echo '</div />';  
 
 	}
+
+
+
 	echo '</div >';
 
 	echo '<br/>';
 
 	echo '<br/>';
-}
 
+
+	echo '<input type="button" value="borrar" onclick="deleteObra('.$key['id_obra'].')"/>';
+	echo '<hr/>';
+}
 echo '<form action="'.base_url().'index.php/main">';
 echo    '<input type="submit" value="volver" />';
 echo '</form>';
+
 
 ?>
 </body>
