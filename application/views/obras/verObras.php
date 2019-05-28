@@ -7,21 +7,18 @@ function deleteImage(id_image){
 
 	$.post( "deleteImage", { 'id_image': id_image })
 		.done(function( data ) {
-			alert( "se elimino la imagen: " + data );
 			$("#"+id_image).hide();
 		});
 }
 
 function deleteObra(id_obra){
 
-	alert('hello: '+id_obra);
 	$.post("deleteObra", {'id_obra':id_obra}).done(function(data){
-		alert("aca borro el id "+id_obra);
+		$("#"+id_obra).hide();
 	}).fail(function(data){
-	
-		alert(data);
+
 		console.log(data);
-	
+
 	});
 }
 
@@ -41,7 +38,7 @@ function cambiarNombreImagen(id_image){
 
 foreach ($result as $key){
 
-	echo '<div class="obra">';
+	echo '<div class="obra" id="'.$key['id_obra'].'">';
 	//add imagen
 
 	$addImagen = array(
@@ -202,7 +199,7 @@ foreach ($result as $key){
 		echo form_input($textoImagen);
 		echo '<input type="button" value="cambiarNombre" onclick="cambiarNombreImagen('.$key['id_images'].')"/>';
 		echo '<img src="'.base_url().'uploads/'.$key['url'].'" height="500px" width="500px"/>';	
-		echo '<input type="button" value="eliminar" onclick="deleteImage('.$key['id_images'].')"/>';
+		echo '<input type="button" value="eliminarImagen" onclick="deleteImage('.$key['id_images'].')"/>';
 		echo '</div />';  
 
 	}
@@ -217,6 +214,10 @@ foreach ($result as $key){
 
 
 	echo '<input type="button" value="borrar" onclick="deleteObra('.$key['id_obra'].')"/>';
+	echo '<hr/>';
+	echo '<hr/>';
+	echo '<hr/>';
+	echo '<hr/>';
 	echo '<hr/>';
 }
 echo '<form action="'.base_url().'index.php/main">';
